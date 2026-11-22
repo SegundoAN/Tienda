@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!-- Esto le dice al navegador: "esta página es HTML moderno". Siempre va primero. -->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- Esta línea hace que la página se vea bien en el celular. No la borres. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- El texto de la pestaña del navegador -->
+  <title>Calzados de cuero  - Trujillo</title>
+
+  <style>
+    /* ==========================================================
+       CSS = LA DECORACIÓN
+       Aquí decimos de qué color, qué tamaño y dónde va cada cosa.
+       ========================================================== */
+
+    /* Colores guardados con nombre, para cambiarlos fácil después.
+       Si quieres otro color, cambias solo estas líneas. */
+    :root {
+      --crema: #a4bcec;     /* fondo de la página */
+      --cuero: #b75713;     /* marrón oscuro, color del cuero */
+      --cuero-claro: #8a5a33;
+      --whatsapp: hsl(144, 84%, 49%);  /* verde del botón de WhatsApp */
+    }
+
+    /* Reglas para TODA la página */
+    body {
+      margin: 0;                         /* quita el borde blanco por defecto */
+      background: var(--crema);          /* fondo crema */
+      color: var(--cuero);               /* letras marrón oscuro */
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;                   /* letra grande para leer en celular */
+      line-height: 1.5;                  /* espacio entre renglones */
+    }
+
+    /* El CONTENEDOR general: centra todo y no deja que se estire demasiado */
+    .contenedor {
+      max-width: 960px;
+      margin: 0 auto;                    /* "auto" lo centra */
+      padding: 0 20px;
+    }
+
+    /* ---------- SECCIÓN 1: PORTADA ---------- */
+    header {
+      text-align: center;
+      padding: 48px 0 32px;
+    }
+
+    /* El TÍTULO grande */
+    h1 {
+      font-family: Georgia, "Calzado Guanilos", serif;
+      font-size: 42px;
+      line-height: 1.15;
+      margin: 0 0 16px;
+    }
+
+    /* El PÁRRAFO de presentación */
+    .presentacion {
+      font-size: 22px;
+      max-width: 560px;
+      margin: 0 auto 28px;
+    }
+
+    /* ---------- BOTÓN VERDE DE WHATSAPP ---------- */
+    .btn-whatsapp {
+      display: inline-block;
+      background: var(--whatsapp);
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      text-decoration: none;             /* quita la línea de los links */
+      padding: 18px 32px;                /* botón grande, fácil de tocar con el dedo */
+      border-radius: 50px;               /* bordes redondos */
+    }
+
+    /* ---------- SECCIÓN 2: PRODUCTOS ---------- */
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 32px;
+      text-align: center;
+      margin: 24px 0;
+    }
+
+    /* La rejilla que acomoda las 3 tarjetas.
+       En celular quedan una debajo de otra; en pantalla grande, una al lado de otra. */
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      padding-bottom: 40px;
+    }
+
+    /* Cada TARJETA (la "caja de zapatos").
+       El borde punteado parece la costura de un zapato hecho a mano. */
+    .tarjeta {
+      background: #fffaf0;
+      border: 3px dashed var(--cuero-claro);
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    /* El espacio de la foto. Es un cuadro con un emoji por ahora. */
+    .foto {
+      font-size: 72px;
+      background: #c0a36a;
+      border-radius: 10px;
+      padding: 20px 0;
+      margin-bottom: 16px;
+    }
+
+    .tarjeta h3 {
+      font-size: 26px;
+      margin: 0 0 8px;
+    }
+
+    .precio {
+      font-size: 30px;
+      font-weight: bold;
+      margin: 0 0 16px;
+    }
+
+    /* Botón marrón de cada producto */
+    .btn-producto {
+      background: var(--cuero);
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 24px;
+      width: 100%;                       /* ocupa todo el ancho de la tarjeta */
+      cursor: pointer;                   /* la manito al pasar el mouse */
+    }
+
+    /* ---------- SECCIÓN 3: PIE DE PÁGINA ---------- */
+    footer {
+      background: var(--cuero);
+      color: var(--crema);
+      text-align: center;
+      padding: 32px 20px;
+    }
+
+    footer p { margin: 0 0 16px; }
+
+    /* Para pantallas grandes (computadora), el título crece un poco más */
+    @media (min-width: 700px) {
+      h1 { font-size: 56px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ==========================================================
+       HTML = EL LOCAL
+       Aquí ponemos QUÉ hay en la página.
+       ========================================================== -->
+
+  <!-- SECCIÓN 1: PORTADA (lo primero que ve el cliente) -->
+  <header>
+    <div class="contenedor">
+      <!-- h1 = título principal. Solo se usa uno por página. -->
+      <h1>Calzado Guanilos - Hecho en Trujillo</h1>
+
+      <!-- p = párrafo de texto -->
+      <p class="presentacion">
+        Zapatos hechos a mano en El Porvenir, Trujillo. Calidad peruana, precio justo. Desde S/69
+      </p>
+
+      <!-- a = link. Con la clase "btn-whatsapp" se ve como botón verde.
+           IMPORTANTE: cambia 51999999999 por tu número (51 es el código de Perú, sin el +). -->
+      <a class="btn-whatsapp"
+         href="https://wa.me/51951688867?text=Hola,%20quiero%20pedir%20zapatos"
+         target="_blank">
+      hacer pedidos sin compromiso
+      </a>
+    </div>
+  </header>
+
+  <!-- SECCIÓN 2: PRODUCTOS -->
+  <main class="contenedor">
+    <h2>Nuestros zapatos</h2>
+
+    <!-- div = contenedor que agrupa las 3 tarjetas -->
+    <div class="productos">
+
+      <!-- TARJETA 1: cada tarjeta es un div con foto, nombre, precio y botón -->
+      <div class="tarjeta">
+        <!-- Aquí luego pondrás tu foto real con:
+             <img src="zapatilla.jpg" alt="Zapatilla urbana">
+             y borrarás el emoji. -->
+        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSo-_YiUEljgxMHBPpD2dVsI3kqg8N14UA9kdUfPo2owQNXZXW9aSmAOjWC8-n_H1uXgiQg6EuxPfLpQu8f8-iqk46v7TPHfOo9yWGOUQuHdYQrpEslmsAk4OkLn2znAiNi9BOe_w&usqp=CAc"width="250">
+        <h3>Zapatilla Urbana</h3>
+        <p class="precio">S/89</p>
+         <p>Tallas:  35 - 36 - 37 - 38 - 39 - 40 - 42</p>
+        <a href="https://wa.me/51951688867?text=Hola%20quiero%20estas%20Zapatillas%20color%20blancas y azul%20de%20S/89" class="btn-producto" target="_blank">Quiero este</a>
+
+      </div>
+
+      <!-- TARJETA 2 -->
+      <div class="tarjeta">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmD4uKhUq-XZZ2klNtLW0f2p_mLC-LsWlBEc9plEXMHA&s=10"width="250">
+        <h3>Zapato Escolar</h3>
+        <p class="precio">S/69</p>
+          <p>Tallas: 26 - 28 - 35 - 36 - 37 - 38 - 39 - 40</p>
+        <a href="https://wa.me/51951688867?text=Hola%20quiero%20los%20Zapatos%20color%20negro%20de%20S/69" class="btn-producto" target="_blank">Quiero este</a>
+
+      </div>
+
+      <!-- TARJETA 3 -->
+      <div class="tarjeta">
+        <img src="https://images.unsplash.com/photo-1638247025967-b4e38f787b76?w=400" width="250">
+        <h3>Botines</h3>
+        <p class="precio">S/129</p>
+        <p>Tallas: 35 - 36 - 37 - 38 - 39 - 40 - 42</p>
+          <a href="https://wa.me/51951688867?text=Hola%20quiero%20los%20Botines%20color%20marrones%20de%20S/129" class="btn-producto" target="_blank">Quiero este</a>
+      </div>
+      <!-- TARJETA 4 -->
+      <div class="tarjeta">
+        <div class="foto"><img src="Sandalia.jpeg" width="50"></div>
+        <h3>Sandalias de verano</h3>
+        <p class="precio">S/45</p>
+        <p>Tallas: 35 - 36 - 37 - 38 - 39 - 40 - 42</p>
+          <a href="https://wa.me/51951688867?text=Hola%20quiero%20las%20Sandalias%20de%20verano%20de%20S%2F45" class="btn-producto" target="_blank">Quiero este</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- SECCIÓN 3: PIE DE PÁGINA con otro botón de WhatsApp -->
+  <footer>
+    <p>¿Listo para tus zapatos nuevos? Escríbenos.</p>
+    <a class="btn-whatsapp"
+       href="https://wa.me/51951688867?text=Hola,%20quiero%20pedir%20zapatos"
+       target="_blank">
+      Pedir por WhatsApp
+    </a>
+  </footer>
+</body>
+</html>
